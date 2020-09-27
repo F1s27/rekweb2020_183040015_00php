@@ -1,0 +1,26 @@
+<?php
+
+class Games extends Produk implements InfoProduk  {       //class child
+    public $waktuMain;
+
+
+    public function __construct($judul="judul", $penulis="penulis", $penerbit="penerbit", $harga=0, $waktuMain=0){
+
+        parent::__construct($judul, $penulis, $penerbit, $harga);
+        
+        $this->waktuMain = $waktuMain;
+
+    }
+
+    public function getInfo(){
+        $str = " {$this->judul}| {$this->getLabel()}, (Rp.{$this->harga}) ";
+        
+        return $str;
+    }
+
+
+    public function getInfoProduk(){
+        $str = "Games : " . $this->getInfo().  "~ {$this->waktuMain} Jam  ";
+        return $str;
+    }
+}
